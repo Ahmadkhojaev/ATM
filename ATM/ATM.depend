@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1636545041 source:e:\dasturlar\atm\main.cpp
+	<iostream>
+	<iomanip>
+

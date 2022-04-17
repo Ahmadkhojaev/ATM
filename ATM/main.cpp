@@ -6,13 +6,13 @@
 using namespace std;
 int main()
 {
-    int org_pin=1234, pin, chance=3;
-    float balans=250000.25;
-    cout << "\t\tiSystem Bankomati:\n";
+    int OriginalPin={card_pin}, pin, chance=3;
+    float balans={balance};
+    cout << "\t\t{Name} Bankomati:\n";
 k:    cout << "Pin: ";
     cin >>pin;
 
-    if (pin==org_pin){
+    if (pin==OriginalPin){
         cout << "Sistemaga kirildi\n\n";
 t:    cout << "1.Balansni ko'rish\n2.Pul yechib olish\n3.Pul kiritish\n4.Pin o'zgartirish\n\n5.Dasturdan chiqish\n";
 
@@ -22,16 +22,16 @@ t:    cout << "1.Balansni ko'rish\n2.Pul yechib olish\n3.Pul kiritish\n4.Pin o'z
     {
         case 1: cout << "Kartangiz balansi: " << fixed <<  setprecision(2) << balans << endl; goto t;
         case 2: {
-            float rem_balans;
+            float RemoveBalans;
             cout << "Chiqarish uchun pul miqdorini kiriting: ";
-l:            cin >> rem_balans;
-            if (rem_balans<0){
+l:            cin >> RemoveBalans;
+            if (RemoveBalans<0){
                     cout << "Musbat qiymat kiriting: "; goto l;}
-            else if (balans>=rem_balans){
+            else if (balans>=RemoveBalans){
             cout << "Pin kodni kiriting: ";
             cin >> pin;
-                if (pin==org_pin){
-                        balans=balans-rem_balans;
+                if (pin==OriginalPin){
+                        balans=balans-RemoveBalans;
                     cout << "Jarayon muvafaqqiyatli amalga oshirildi\nJoriy karta balansi: " << fixed << setprecision(2) << balans <<endl; goto t;
                 }
                 else cout << "Pin kod xato kiritildi!\n"; goto t;
@@ -40,19 +40,19 @@ l:            cin >> rem_balans;
         goto t;}
         case 3: {
             cout << "Pullarni kiriting: ";
-            float add_balans;
-j:            cin >> add_balans;
-            if (add_balans<0){
+            float AddBalans;
+j:            cin >> AddBalans;
+            if (AddBalans<0){
                 cout << "Musbat qiymat kiriting: "; goto j;
             }
             else {
-            balans=balans+add_balans;
+            balans=balans+AddBalans;
             cout << "Pullar qabul qilindi\n Sizdagi joriy balans: "<< fixed << setprecision(2) << balans << endl; goto t;
         }}
         case 4: {
         cout << "Joriy pin kodni kiriting: ";
         cin >> pin;
-        if (pin==org_pin)
+        if (pin==OriginalPin)
         {
             cout << "Yangi pin kodni kiriting: ";
             int new1_pin, new2_pin;
@@ -61,8 +61,8 @@ j:            cin >> add_balans;
             cin >> new2_pin;
 
             if (new1_pin==new2_pin){
-                org_pin=new1_pin;
-                cout << "Pin muvafaqqiyatli o'zgartirildi!\nJoriy pin: " << org_pin << endl;
+                OriginalPin=new1_pin;
+                cout << "Pin muvafaqqiyatli o'zgartirildi!\nJoriy pin: " << OriginalPin << endl;
             }
             else cout << "Yangi pinlar bir-biriga mos emas!\n"; goto t;
         }
